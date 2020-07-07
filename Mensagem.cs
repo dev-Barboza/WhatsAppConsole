@@ -1,17 +1,13 @@
-using System;
-
-public class Mensagem 
+namespace Whatsaap
 {
-    public string Texto { get; set; }
+    public class Mensagem
+{
+    public string  Texto { get; set; }
+    public Contato Destinatario { get; set; }
 
-    public Contato Destinatario;
-
-
-    public void Enviar(Contato _Contato)
+    public string Enviar()
     {
-        System.Console.WriteLine("Enviar mensagem para o contato " + _Contato.Nome);
-        Texto = Console.ReadLine();
-
-        System.Console.WriteLine("Mensagem enviada" + Texto + "foi enviada para "+ _Contato.Nome);
+        return $"Para {Destinatario.NomeContato} \n Mensagem{Texto}";
     }
+}
 }

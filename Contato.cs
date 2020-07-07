@@ -1,17 +1,13 @@
-using System;
-
-public class Contato
+namespace Whatsaap
 {
-    public string Nome { get; set; }
-
-    public int Telefone { get; set; }
-
-
-     public Contato(){}
-
-     public Contato(string Contato_Nome , int TelefoneContato)
-     {
-         this.Nome = Contato_Nome;
-         this.Telefone = TelefoneContato;
-     }
+    public class Contato
+{
+    public string NomeContato { get; set; }
+    public string Telefone { get; set; }
+    public Contato(string _nome , string _telefone)
+    {
+        this.NomeContato = _nome;
+        this.Telefone = _telefone;
+    }
+}
 }

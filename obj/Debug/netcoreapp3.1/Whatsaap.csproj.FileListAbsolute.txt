@@ -1,0 +1,13 @@
+C:\Users\maheu\Documents\Whatsaap\bin\Debug\netcoreapp3.1\Whatsaap.exe
+C:\Users\maheu\Documents\Whatsaap\bin\Debug\netcoreapp3.1\Whatsaap.deps.json
+C:\Users\maheu\Documents\Whatsaap\bin\Debug\netcoreapp3.1\Whatsaap.runtimeconfig.json
+C:\Users\maheu\Documents\Whatsaap\bin\Debug\netcoreapp3.1\Whatsaap.runtimeconfig.dev.json
+C:\Users\maheu\Documents\Whatsaap\bin\Debug\netcoreapp3.1\Whatsaap.dll
+C:\Users\maheu\Documents\Whatsaap\bin\Debug\netcoreapp3.1\Whatsaap.pdb
+C:\Users\maheu\Documents\Whatsaap\obj\Debug\netcoreapp3.1\Whatsaap.csprojAssemblyReference.cache
+C:\Users\maheu\Documents\Whatsaap\obj\Debug\netcoreapp3.1\Whatsaap.csproj.CoreCompileInputs.cache
+C:\Users\maheu\Documents\Whatsaap\obj\Debug\netcoreapp3.1\Whatsaap.AssemblyInfoInputs.cache
+C:\Users\maheu\Documents\Whatsaap\obj\Debug\netcoreapp3.1\Whatsaap.AssemblyInfo.cs
+C:\Users\maheu\Documents\Whatsaap\obj\Debug\netcoreapp3.1\Whatsaap.dll
+C:\Users\maheu\Documents\Whatsaap\obj\Debug\netcoreapp3.1\Whatsaap.pdb
+C:\Users\maheu\Documents\Whatsaap\obj\Debug\netcoreapp3.1\Whatsaap.genruntimeconfig.cache

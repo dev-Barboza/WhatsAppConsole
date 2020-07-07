@@ -1,39 +1,116 @@
-using System;
+using System.Collections.Generic;
 using System.IO;
-using Whatsaap;
+using System.Linq;
 
-public class Agenda : IAgenda
+namespace Whatsaap
+{
+    public class Agenda : IAgenda
+
     {
-       public float ValorTotal;
+        List<Contato> contatos = new List<Contato>();
+        
+        /// <summary>
+        /// Criar pasta PATH, caso ñ exista
+        /// </summary>
+        public Agenda()
+        {
+            string pasta = PATH.Split('/')[0];
 
-       private const string PATH = "Database/contatos.csv";
-
-        public Agenda(){
+            if(!Directory.Exists(pasta)){
+                Directory.CreateDirectory(pasta);}
             
-            string directory = PATH.Split('/')[0];
-
-            if(!Directory.Exists(directory)){
-                Directory.CreateDirectory(directory);
-            }
-
-            if(!File.Exists(PATH))
-            {
+            if(!File.Exists(PATH)){
                 File.Create(PATH).Close();
             }
+            
+        }
+        private const string PATH = "Database/contato.csv";
+        
+        /// <summary>
+        /// Ajustar e organizar uma linha CSV
+        /// </summary>
+        /// <param name="cont"></param>
+        public void Cadastrar(Contato cont)
+        {
+            string [] linhas = {PrepararLinhaCSV(cont)};
+            File.AppendAllLines(PATH ,linhas);
         }
 
-    public void Cadastrar(string _Contato)
-    {
-        
-    }
+        /// <summary>
+        /// retornar nome e telefone do contato
+        /// </summary>
+        /// <param name="c"></param>
+        /// <returns></returns>
+        private string PrepararLinhaCSV(Contato c)
+        {
+            return $"{c.NomeContato};{c.Telefone}";
+        }
 
-    public void Excluir(string _Contato)
-    {
-        
-    }
+       /// <summary>
+       /// excluirá contato indicado
+       /// </summary>
+       /// <param name="cont"></param>
+        public void Excluir(Contato cont)
+        {
+             List<string> linhas = new List<string>();
 
-    public void Listar()
-    {
+            // ler.csv
+            using(StreamReader arquivo = new StreamReader(PATH))
+            {
+                string linha;
+                while((linha = arquivo.ReadLine()) != null)
+                {
+                    linhas.Add(linha);
+                }
+            }
+
+            linhas.RemoveAll(x => x.Contains(cont.NomeContato));
+            ReescreverCSV(linhas);
+        }
+
         
+        /// <summary>
+        /// irá listar e add um contato
+        /// </summary>
+        /// <returns></returns>
+        public List<Contato> Listar()
+        {
+           List<Contato> produtos = new List<Contato>();
+            
+            //arry de linhas 
+            string[] linhas = File.ReadAllLines(PATH);
+
+            //separar cada linha com split
+            foreach(string linha in linhas)
+            {
+            string[] dado = linha.Split(";");
+
+            //criar instancia para add na lista
+
+            Contato c = new Contato(dado[0],dado[1]);
+
+           
+            
+            contatos.Add(c);
+            }
+
+            contatos = contatos.OrderBy(y=> y.NomeContato).ToList();
+            return contatos;
+        }
+
+        /// <summary>
+        /// reescreer csv
+        /// </summary>
+        /// <param name="lines"></param>
+        private void ReescreverCSV(List<string> lines){
+            
+            using(StreamWriter output = new StreamWriter(PATH))
+            {
+                foreach(string ln in lines)
+                {
+                    output.Write(ln + "\n");
+                }
+            }   
+        }
     }
 }

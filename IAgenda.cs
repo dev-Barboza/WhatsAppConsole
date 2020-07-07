@@ -1,11 +1,13 @@
+using System.Collections.Generic;
+
 namespace Whatsaap
 {
     public interface IAgenda
     {
-         void Cadastrar(string _Contato);
+         void Cadastrar(Contato cont);
 
-         void Excluir(string _Contato);
+         void Excluir(Contato cont);
 
-         void Listar();
+         List<Contato> Listar();
     }
 }
